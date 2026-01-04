@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOGOMA Health Solution</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="main.js"></script>
+</head>
+<body>
+
+  <!-- Loader -->
+  <div id="loader">
+    <img src="images/logo.png" alt="KOGOMA Health Solution Logo" />
+  </div>
+
+  <!-- Main Content -->
+  <div id="app" class="hidden">
+
+    <!-- Header -->
+ <header class="navbar">
+  <div class="logo-area">
+    <img src="images/logo.png" alt="KOGOMA Logo" />
+    <span>KOGOMA HEALTH SOLUTION</span>
+  </div>
+
+  <nav class="nav-links">
+    <a href="#discover">Discover</a>
+    <a href="#services">Services</a>
+    <a href="#pharmacy">Pharmacy</a>
+    <a href="#support">Support</a>
+  </nav>
+
+  <div class="nav-actions">
+    <div class="lang-switch">
+      <button onclick="setLanguage('en')">EN</button>
+      <button onclick="setLanguage('sw')">SW</button>
+    </div>
+
+    <a href="#get-started" class="nav-cta">Get Started</a>
+  </div>
+</header>
+
+
+     
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1 data-i18n="hero_title">
+        Connecting Patients to Care, Support, and Hope
+      </h1>
+
+      <p data-i18n="hero_subtitle">
+        KOGOMA Health Solution provides patient support, counselling, referrals,
+        and access to essential medical services  all in one secure platform.
+      </p>
+
+      <a href="#" class="cta-btn" data-i18n="get_started">
+        Get Started
+      </a>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+      <div class="service">
+        <h3 data-i18n="service1_title">Patient Enrollment & Support</h3>
+        <p data-i18n="service1_desc">
+          Register patients, request support, and track assistance efficiently.
+        </p>
+      </div>
+
+      <div class="service">
+        <h3 data-i18n="service2_title">Counselling Services</h3>
+        <p data-i18n="service2_desc">
+          Professional counselling for students, youths, teenagers, and schools 
+          including virtual sessions.
+        </p>
+      </div>
+
+      <div class="service">
+        <h3 data-i18n="service3_title">Referral Services</h3>
+        <p data-i18n="service3_desc">
+          Organized referrals for ambulance, maternity, surgical, and cancer care.
+        </p>
+      </div>
+
+      <div class="service">
+        <h3 data-i18n="service4_title">Online Pharmacy</h3>
+        <p data-i18n="service4_desc">
+          Order verified medicines online from trusted pharmacies and professionals.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 KOGOMA Health Solution. All rights reserved.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
