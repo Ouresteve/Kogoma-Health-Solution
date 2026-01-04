@@ -5,6 +5,10 @@ window.addEventListener("load", () => {
     document.getElementById("app").classList.remove("hidden");
   }, 2000);
 });
+function toggleMenu() {
+  const menu = document.getElementById("mobileMenu");
+  menu.style.right = menu.style.right === "0px" ? "-100%" : "0px";
+}
 
 // Translations
 const translations = {
