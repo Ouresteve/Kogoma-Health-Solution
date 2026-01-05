@@ -199,21 +199,27 @@ body {
   width: 42px;
 }
 
-.lang-switch button {
-  margin-left: 6px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--primary-blue);
-  background: transparent;
-  color: var(--primary-blue);
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
+/* Add this to your CSS file or <style> tag */
+
+/* Style the GTranslate wrapper to fit seamlessly in the header */
+.gtranslate_wrapper {
+    display: inline-block;
+    position: relative;  /* Makes it behave like other inline elements (e.g., buttons, links) */
+    margin-left: 20px;      /* Space from other header items; adjust as needed */
+    vertical-align: middle; /* Aligns vertically with text/links in header */
 }
 
-.lang-switch button:hover {
-  background: var(--primary-blue);
-  color: white;
+/* Optional: Customize the dropdown appearance to match your header's theme */
+.gtranslate_wrapper select {
+   padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #dfe7ef;
+  font-size: 14px;
+  cursor: pointer; 
+}
+
+.gtranslate_wrapper select:hover {
+    background-color: #0056b3;  /* Darker hover effect */
 }
 
 /* =========================
@@ -380,81 +386,3 @@ footer {
 
 
 
-
-
-
-.auth-container {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:
-    radial-gradient(circle at top right, rgba(46,204,113,0.15), transparent 40%),
-    radial-gradient(circle at bottom left, rgba(31,79,216,0.15), transparent 45%),
-    var(--soft-gray);
-}
-
-.auth-card {
-  width: 100%;
-  max-width: 420px;
-  background: white;
-  padding: 40px 32px;
-  border-radius: 20px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.auth-logo {
-  width: 80px;
-  margin-bottom: 20px;
-}
-
-.auth-card h2 {
-  margin-bottom: 10px;
-}
-
-.auth-card p {
-  color: var(--muted-text);
-  margin-bottom: 24px;
-}
-
-.google-btn {
-  width: 100%;
-  padding: 14px;
-  border-radius: 999px;
-  border: 1px solid #e5e7eb;
-  background: white;
-  font-weight: 700;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-
-.divider {
-  margin: 20px 0;
-  color: #9ca3af;
-}
-
-.auth-card input {
-  width: 100%;
-  padding: 14px;
-  margin-bottom: 14px;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-}
-
-.primary-btn {
-  width: 100%;
-  padding: 14px;
-  background: var(--blue-gradient);
-  color: white;
-  border: none;
-  border-radius: 999px;
-  font-weight: 700;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.auth-switch {
-  margin-top: 20px;
-  font-size: 0.9rem;
-}

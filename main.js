@@ -10,6 +10,9 @@ function toggleMenu() {
   menu.style.right = menu.style.right === "0px" ? "-100%" : "0px";
 }
 
+
+
+
 // Translations
 const translations = {
   en: {
@@ -65,3 +68,31 @@ function setLanguage(lang) {
     el.textContent = translations[lang][key];
   });
 }
+
+
+
+
+
+const toggle = document.getElementById("toggleAuth");
+const submitBtn = document.getElementById("submitBtn");
+let isLogin = false;
+
+toggle.addEventListener("click", () => {
+  isLogin = !isLogin;
+  submitBtn.textContent = isLogin ? "Login" : "Create Account";
+  toggle.textContent = isLogin ? "Create account" : "Login";
+});
+
+document.getElementById("authForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+
+  if (!email.includes("@")) {
+    alert("Please enter a valid email address");
+    return;
+  }
+
+  // Backend logic later
+  //alert(isLogin ? "Login submitted" : "Account creation submitted");
+});
