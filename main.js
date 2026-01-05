@@ -94,5 +94,5 @@ document.getElementById("authForm").addEventListener("submit", (e) => {
   }
 
   // Backend logic later
-  //alert(isLogin ? "Login submitted" : "Account creation submitted");
+  alert(isLogin ? "Login submitted" : "Under Development ");
 });
