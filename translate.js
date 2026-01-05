@@ -2,7 +2,7 @@
 
 window.gtranslateSettings = {
     "default_language": "en",  // Default to English; change if needed
-    "languages": ["en", "fr", "es", "de", "it", "ja", "zh-CN", "ar", "sw"], 
+    "languages": ["en", "sw","fr", "es", "de", "it", "ja", "zh-CN", "ar", "ru"], 
     "wrapper_selector": ".gtranslate_wrapper",  
     "switcher_horizontal_position": "right",  
     "switcher_vertical_position": "top",
