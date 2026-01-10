@@ -16,7 +16,7 @@
 body {
   min-height: 100vh;
   margin: 0;
-  background: url("images/logo2.jpeg");
+  background: url("/images/logo2.jpeg");
   display: flex;
   align-items: center;
   justify-content: center;
