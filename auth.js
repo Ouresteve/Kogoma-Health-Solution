@@ -88,9 +88,10 @@ if (isLogin) {
     const payload = JSON.parse(atob(data.access_token.split(".")[1]));
     
     if (payload.role === "admin") {
-        window.location.href = "https://kogoma-server.onrender.com/staff-frontend";
+        window.location.href = "https://kogoma-server.onrender.com/staff-frontend/";
     } else if (payload.role === "staff") {
-        window.location.href = "staff-dashboard.html";
+      pass
+        // window.location.href = "staff-dashboard.html";
     } else {
         window.location.href = "https://kogoma-health-solution.vercel.app/Dashbaord"; // normal user
     }
