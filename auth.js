@@ -1,0 +1,105 @@
+
+
+const authForm = document.getElementById("authForm");
+const toggleAuth = document.getElementById("toggleAuth");
+const submitBtn = document.getElementById("submitBtn");
+const confirmPassword = document.getElementById("confirmPassword");
+const form = document.getElementById("authForm");
+const emailInput=document.getElementById("email");
+const nameInput=document.getElementById("name");
+const passwordInput=document.getElementById("password");
+let isLogin = true; // false = signup, true = login
+
+// Toggle between Login and Create Account
+toggleAuth.addEventListener("click", () => {
+  isLogin=!isLogin;
+
+  if (isLogin) {
+    isLogin=true;
+    submitBtn.textContent = "Login";
+    confirmPassword.required=false;
+    nameInput.required=false;
+    nameInput.style.display="none";
+    confirmPassword.style.display = "none";
+    
+    toggleAuth.textContent = "Create Account";
+  } else {
+    submitBtn.textContent = "Create Account";
+    confirmPassword.style.display = "block";
+    confirmPassword.required = true;
+    nameInput.style.display = "block";
+    nameInput.required = true;
+
+    toggleAuth.textContent = "Login";
+  }
+});
+
+// Handle form submission
+form.onsubmit = async (e) => {
+  e.preventDefault();
+  
+
+  const email = emailInput.value;
+  const password = passwordInput.value;
+  const name=nameInput.value;
+  if (confirmPassword.value!=password && !isLogin){
+    alert("passwords do not match");
+    return;
+  }
+  let payload;
+  let url;
+
+if (isLogin) {
+    // LOGIN → only email & password
+    url = "https://kogoma-server.onrender.com/auth/login";
+    payload = {
+      email,
+      password
+    };
+  } else {
+    // REGISTER → email & password (+ confirm password check)
+    url = "https://kogoma-server.onrender.com/auth/register";
+    payload = {
+        name,
+      email,
+      password
+    };
+  }
+
+  const res = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload)
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    alert(data.detail || "Something went wrong");
+    return;
+  }
+
+  if (isLogin) {
+    localStorage.setItem("token", data.access_token);
+    
+    // Decode JWT payload
+    const payload = JSON.parse(atob(data.access_token.split(".")[1]));
+    
+    if (payload.role === "admin") {
+        window.location.href = "C:/Users/HP/Desktop/Kogoma-Python-Backend/staff-frontend/index.html";
+    } else if (payload.role === "staff") {
+        window.location.href = "staff-dashboard.html";
+    } else {
+        window.location.href = "dashboard.html"; // normal user
+    }
+    
+  } else {
+    alert("Account created. Await admin approval.");
+  }
+};
+
+
+
+

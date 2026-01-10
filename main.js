@@ -71,28 +71,3 @@ function setLanguage(lang) {
 
 
 
-
-
-const toggle = document.getElementById("toggleAuth");
-const submitBtn = document.getElementById("submitBtn");
-let isLogin = false;
-
-toggle.addEventListener("click", () => {
-  isLogin = !isLogin;
-  submitBtn.textContent = isLogin ? "Login" : "Create Account";
-  toggle.textContent = isLogin ? "Create account" : "Login";
-});
-
-document.getElementById("authForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const email = document.getElementById("email").value;
-
-  if (!email.includes("@")) {
-    alert("Please enter a valid email address");
-    return;
-  }
-
-  // Backend logic later
-  alert(isLogin ? "Login submitted" : "Under Development ");
-});

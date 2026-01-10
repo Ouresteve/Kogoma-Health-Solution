@@ -69,6 +69,12 @@
   <span>💊</span>
   <span>👤</span>
 </div>
+<script>
+  const token = localStorage.getItem("token");
+  if (!token) {
+    window.location.href = "auth.html";
+  }
+</script>
 
 </body>
 </html>

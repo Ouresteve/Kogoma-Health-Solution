@@ -18,15 +18,24 @@
   </div>
 
   <!-- Google Auth -->
-  <button class="google-btn">
-    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google"/>
-    Continue with Google
-  </button>
+  <button class="google-btn" onclick="googleLogin()">
+  <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google"/>
+  Continue with Google
+</button>
+
 
   <div class="divider"><span>OR</span></div>
 
   <!-- Form -->
   <form id="authForm">
+    <input 
+      type="text"
+      id="name"
+      placeholder="Full Name"
+      style="display:none"
+      
+      
+      />
     <input 
       type="email" 
       id="email" 
@@ -40,21 +49,33 @@
       placeholder="Password" 
       required
     />
+     <!-- Confirm password only for signup -->
+  <input 
+    type="password" 
+    id="confirmPassword" 
+    placeholder="Confirm Password" 
+    style="display:none;" 
+    
+  />
+
+  
 
     <button type="submit" class="primary-btn" id="submitBtn">
-      Create Account
+      Login
     </button>
   </form>
 
   <!-- Toggle -->
   <p class="toggle-text">
     Already have an account?
-    <span id="toggleAuth">Login</span>
+    <span id="toggleAuth">Create Account</span>
   </p>
 
 </div>
 
-<script src="main.js"></script>
+
+
+<script src="auth.js"></script>
 <script src="translate.js"></script>
 </body>
 </html>
