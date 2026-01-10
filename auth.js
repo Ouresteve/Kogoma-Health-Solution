@@ -93,7 +93,7 @@ if (isLogin) {
       pass
         // window.location.href = "staff-dashboard.html";
     } else {
-        window.location.href = "https://kogoma-health-solution.vercel.app/Dashbaord"; // normal user
+        window.location.href = "https://kogoma-health-solution.vercel.app/Dashbaord/"; // normal user
     }
     
   } else {
