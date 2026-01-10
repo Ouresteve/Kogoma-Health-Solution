@@ -97,7 +97,7 @@ if (isLogin) {
     }
     
   } else {
-    window.location.href="https://kogoma-health-solution.vercel.app/Dashbaord";
+    window.location.href="https://kogoma-health-solution.vercel.app/Dashbaord/";
   }
 };
 
