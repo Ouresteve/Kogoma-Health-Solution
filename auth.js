@@ -42,6 +42,7 @@ form.onsubmit = async (e) => {
   const email = emailInput.value;
   const password = passwordInput.value;
   const name=nameInput.value;
+  const submission=document.getElementById("submitBtn");
   if (confirmPassword.value!=password && !isLogin){
     alert("passwords do not match");
     return;
@@ -51,12 +52,14 @@ form.onsubmit = async (e) => {
 
 if (isLogin) {
     // LOGIN → only email & password
+    submission.innerHTML="Logging in...";
     url = "https://kogoma-server.onrender.com/auth/login";
     payload = {
       email,
       password
     };
   } else {
+    submission.innerHTML="Creating account...";
     // REGISTER → email & password (+ confirm password check)
     url = "https://kogoma-server.onrender.com/auth/register";
     payload = {
