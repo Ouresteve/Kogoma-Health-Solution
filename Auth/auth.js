@@ -51,12 +51,14 @@ form.onsubmit = async (e) => {
 
 if (isLogin) {
     // LOGIN → only email & password
+    submitBtn.textContent="Logging in....";
     url = "https://kogoma-server.onrender.com/auth/login";
     payload = {
       email,
       password
     };
   } else {
+    submitBtn.textContent="Creating Account....";
     // REGISTER → email & password (+ confirm password check)
     url = "https://kogoma-server.onrender.com/auth/register";
     payload = {
