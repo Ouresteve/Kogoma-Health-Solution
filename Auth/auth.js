@@ -78,7 +78,13 @@ if (isLogin) {
 
   const data = await res.json();
 
-  if (!res.ok) {
+  if (!res.ok) { 
+    if (isLogin) {
+      submitBtn.textContent = "Login";
+    }else {
+      submitBtn.textContent = "Create Account";
+    }
+  
     alert(data.detail || "Something went wrong");
     return;
   }
