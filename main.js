@@ -7,11 +7,11 @@ window.addEventListener("load", () => {
 });
 function toggleMenu() {
   const menu = document.getElementById("mobileMenu");
+  const humburger = document.getElementById("humburger");
+  
+  humburger.innerHTML = menu.style.right === "0px" ? "☰" : "✖";
   menu.style.right = menu.style.right === "0px" ? "-100%" : "0px";
 }
-
-
-
 
 // Translations
 const translations = {

@@ -35,7 +35,7 @@ body {
 }
 
 #loader img {
-  width: 120px;
+  width: 300px;
   animation: logoFloat 2s ease-in-out infinite;
 }
 
@@ -127,7 +127,7 @@ body {
   color: var(--dark-text);
 }
 
-.mobile-cta {
+.mobile-menu a.mobile-cta {
   margin-top: 20px;
   padding: 14px;
   background: var(--blue-gradient);
@@ -147,7 +147,10 @@ body {
   }
   .hamburger {
     display: block;
+    
+    
   }
+  
 }
 
 /* =========================
@@ -198,7 +201,7 @@ body {
 }
 
 .logo-area img {
-  width: 42px;
+  width: 120px;
 }
 
 /* Add this to your CSS file or <style> tag */
