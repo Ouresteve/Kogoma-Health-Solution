@@ -5,6 +5,8 @@
   --green-gradient: linear-gradient(135deg, #2ecc71, #6ee7b7);
   --soft-gray: #f4f7fb;
   --dark-text: #1a1a1a;
+  --animation-duration: 1s;
+  --animation-delay-base: 0.2s;
   --muted-text: #6b7280;
 }
 
@@ -292,11 +294,13 @@ body {
   gap: 28px;
   max-width: 1200px;
   margin: 0 auto;
+  
 }
 
 .service {
   background: rgba(255,255,255,0.9);
   border-radius: 20px;
+  
   padding: 32px 26px;
   box-shadow:
     0 20px 40px rgba(0,0,0,0.06),
@@ -468,6 +472,7 @@ h4 {
   background: linear-gradient(135deg, #0a6b5d, #0f9d8a);
   color: white;
   text-align: center;
+  animation: glowPulse 2.5s infinite alternate;
   padding: 90px 10%;
 }
 
@@ -490,116 +495,232 @@ h4 {
 
 
 
+/* Base Styles (Assuming some existing styles; add animations on top) */
 
-/*animation*/
+/* General Animation Setup */
+/* Base Styles (Assuming some existing styles; add animations on top) */
 
-/* =====================
-   ANIMATION BASE
-===================== */
-.animate {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease-out;
+/* General Animation Setup */
+:root {
+  --animation-duration: 1s;
+  --animation-delay-base: 0.2s;
 }
 
-.animate.show {
+section {
+  opacity: 0; /* Start hidden for animation */
+  transform: translateY(20px); /* Slight offset for reveal */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Fallback for non-animated browsers */
+}
+
+section.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Fade Up */
-.fade-up.show {
-  animation: fadeUp 0.9s ease forwards;
+/* Unique Animations for Sections - Trigger only when visible */
+.hero.visible {
+  animation: fadeInUp 1.2s ease-out forwards;
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.services.visible {
+  animation: slideInLeft 1s ease-in-out forwards;
 }
 
-/* Zoom In */
-.zoom-in.show {
-  animation: zoomIn 0.8s ease forwards;
+.why-kogoma.visible {
+  animation: zoomIn 1.1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.referrals.visible {
+  animation: bounceIn 1.3s ease-out forwards;
+}
+
+.counselling.visible {
+  animation: rotateIn 0.9s linear forwards;
+}
+
+.pharmacy.visible {
+  animation: pulseIn 1.4s ease-in-out forwards;
+}
+
+.final-cta.visible {
+  animation: flipIn 1.2s ease forwards;
+}
+
+/* Unique Animations for Cards - Trigger when parent section is visible */
+.service, .why-card, .referral-card, .counselling-card, .pharmacy-card {
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Services Cards */
+.services.visible .service:nth-child(1) {
+  animation: fadeScaleUp var(--animation-duration) ease-out calc(var(--animation-delay-base) * 0) forwards;
+}
+
+.services.visible .service:nth-child(2) {
+  animation: slideLeftGlow var(--animation-duration) ease-out calc(var(--animation-delay-base) * 1) forwards;
+}
+
+.services.visible .service:nth-child(3) {
+  animation: rotateFade var(--animation-duration) ease-out calc(var(--animation-delay-base) * 2) forwards;
+}
+
+.services.visible .service:nth-child(4) {
+  animation: rotateFade var(--animation-duration) ease-out calc(var(--animation-delay-base) * 3) forwards;
+}
+
+/* Why Cards */
+.why-kogoma.visible .why-card:nth-child(1) {
+  animation: pulseHope var(--animation-duration) ease-out calc(var(--animation-delay-base) * 0) forwards;
+}
+
+.why-kogoma.visible .why-card:nth-child(2) {
+  animation: flipHorizontal var(--animation-duration) ease-out calc(var(--animation-delay-base) * 1) forwards;
+}
+
+.why-kogoma.visible .why-card:nth-child(3) {
+  animation: slideRightSharpen var(--animation-duration) ease-out calc(var(--animation-delay-base) * 2) forwards;
+}
+
+.why-kogoma.visible .why-card:nth-child(4) {
+  animation: zoomFade var(--animation-duration) ease-out calc(var(--animation-delay-base) * 3) forwards;
+}
+
+/* Referral Cards (Unique per referral type) */
+.referrals.visible .referral-card:nth-child(1) { /* Ambulance */
+  animation: fadeScaleUp var(--animation-duration) ease-out calc(var(--animation-delay-base) * 0) forwards;
+}
+
+.referrals.visible .referral-card:nth-child(2) { /* Maternity */
+  animation: slideLeftGlow var(--animation-duration) ease-out calc(var(--animation-delay-base) * 1) forwards;
+}
+
+.referrals.visible .referral-card:nth-child(3) { /* Paediatric */
+  animation: rotateFade var(--animation-duration) ease-out calc(var(--animation-delay-base) * 2) forwards;
+}
+
+.referrals.visible .referral-card:nth-child(4) { /* Surgical */
+  animation: rotateFade var(--animation-duration) ease-out calc(var(--animation-delay-base) * 3) forwards;
+}
+
+.referrals.visible .referral-card:nth-child(5) { /* Cancer */
+  animation: pulseHope var(--animation-duration) ease-out calc(var(--animation-delay-base) * 4) forwards;
+}
+
+/* Counselling Cards */
+.counselling.visible .counselling-card:nth-child(1) { /* Individual */
+  animation: flipHorizontal var(--animation-duration) ease-out calc(var(--animation-delay-base) * 0) forwards;
+}
+
+.counselling.visible .counselling-card:nth-child(2) { /* Student & Youth */
+  animation: slideRightSharpen var(--animation-duration) ease-out calc(var(--animation-delay-base) * 1) forwards;
+}
+
+.counselling.visible .counselling-card:nth-child(3) { /* School-Based */
+  animation: waveTop var(--animation-duration) ease-out calc(var(--animation-delay-base) * 2) forwards;
+}
+
+.counselling.visible .counselling-card:nth-child(4) { /* Virtual */
+  animation: zoomFade var(--animation-duration) ease-out calc(var(--animation-delay-base) * 3) forwards;
+}
+
+/* Pharmacy Cards */
+.pharmacy.visible .pharmacy-card:nth-child(1) {
+  animation: fadeScaleUp var(--animation-duration) ease-out calc(var(--animation-delay-base) * 0) forwards;
+}
+
+.pharmacy.visible .pharmacy-card:nth-child(2) {
+  animation: slideLeftGlow var(--animation-duration) ease-out calc(var(--animation-delay-base) * 1) forwards;
+}
+
+.pharmacy.visible .pharmacy-card:nth-child(3) {
+  animation: rotateFade var(--animation-duration) ease-out calc(var(--animation-delay-base) * 2) forwards;
+}
+
+/* Keyframes Definitions (unchanged from previous) */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-100px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes zoomIn {
-  from {
-    opacity: 0;
-    transform: scale(0.85);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
-/* Slide Alternating */
-.slide-alt:nth-child(even).show {
-  animation: slideRight 0.8s ease forwards;
-}
-.slide-alt:nth-child(odd).show {
-  animation: slideLeft 0.8s ease forwards;
-}
-
-@keyframes slideLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+@keyframes bounceIn {
+  0% { opacity: 0; transform: translateY(-50px); }
+  60% { opacity: 1; transform: translateY(10px); }
+  80% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
 }
 
-@keyframes slideRight {
-  from {
-    opacity: 0;
-    transform: translateX(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+@keyframes rotateIn {
+  0% { opacity: 0; transform: rotate(-15deg); }
+  100% { opacity: 1; transform: rotate(0); }
 }
 
-/* Flip In */
-.flip-in.show {
-  animation: flipIn 0.9s ease forwards;
+@keyframes pulseIn {
+  0% { opacity: 0.5; transform: scale(0.95); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 @keyframes flipIn {
-  from {
-    opacity: 0;
-    transform: rotateX(90deg);
-  }
-  to {
-    opacity: 1;
-    transform: rotateX(0);
-  }
+  0% { opacity: 0; transform: perspective(400px) rotateY(90deg); }
+  100% { opacity: 1; transform: perspective(400px) rotateY(0); }
 }
 
-/* Stagger Effect */
-.stagger {
-  transition-delay: calc(var(--i) * 0.15s);
+@keyframes fadeScaleUp {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
-/* CTA Glow */
-.glow.show {
-  animation: glowPulse 2.5s infinite alternate;
+@keyframes slideLeftGlow {
+  0% { opacity: 0; transform: translateX(-50px); box-shadow: 0 0 0 rgba(255, 215, 0, 0); }
+  100% { opacity: 1; transform: translateX(0); box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5); }
 }
 
-@keyframes glowPulse {
-  from {
-    box-shadow: 0 0 15px rgba(255,255,255,0.2);
-  }
-  to {
-    box-shadow: 0 0 40px rgba(255,255,255,0.6);
-  }
+@keyframes bounceBottom {
+  0% { opacity: 0; transform: translateY(50px); }
+  60% { opacity: 1; transform: translateY(-10px); }
+  80% { transform: translateY(5px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes rotateFade {
+  0% { opacity: 0; transform: rotate(-10deg); }
+  100% { opacity: 1; transform: rotate(0); }
+}
+
+@keyframes pulseHope {
+  0% { opacity: 0.5; filter: grayscale(100%); transform: scale(1); }
+  50% { opacity: 1; filter: grayscale(0%); transform: scale(1.05); }
+  100% { opacity: 1; filter: grayscale(0%); transform: scale(1); }
+}
+
+@keyframes flipHorizontal {
+  0% { opacity: 0; transform: perspective(400px) rotateY(90deg); }
+  100% { opacity: 1; transform: perspective(400px) rotateY(0); }
+}
+
+@keyframes slideRightSharpen {
+  0% { opacity: 0; transform: translateX(50px); filter: blur(5px); }
+  100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+}
+
+@keyframes zoomFade {
+  0% { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes waveTop {
+  0% { opacity: 0; transform: translateY(-50px) rotate(0); }
+  50% { transform: translateY(10px) rotate(2deg); }
+  100% { opacity: 1; transform: translateY(0) rotate(0); }
 }

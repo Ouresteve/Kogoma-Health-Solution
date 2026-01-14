@@ -6,21 +6,7 @@ window.addEventListener("load", () => {
   }, 2000);
 });
 
-
-window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-  const app = document.getElementById("app");
-
-  setTimeout(() => {
-    loader.style.opacity = "0";
-    loader.style.transform = "scale(1.1)";
-    setTimeout(() => {
-      loader.style.display = "none";
-      app.classList.remove("hidden");
-    }, 500);
-  }, 800);
-});
-
+// Mobile Menu Toggle
 function toggleMenu() {
   const menu = document.getElementById("mobileMenu");
   const humburger = document.getElementById("humburger");
@@ -29,7 +15,12 @@ function toggleMenu() {
   menu.style.right = menu.style.right === "0px" ? "-100%" : "0px";
 }
 
-
+// Close mobile menu on link click (optional enhancement)
+document.querySelectorAll('#mobileMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    toggleMenu(); // Reuse toggle to close
+  });
+});
 
 // Translations
 const translations = {
@@ -87,5 +78,39 @@ function setLanguage(lang) {
   });
 }
 
+// Set default language (e.g., English)
+setLanguage('en'); // Call this on load, or based on user preference
 
+// Intersection Observer for Animations
+const sections = document.querySelectorAll('section');
+const observerOptions = {
+  threshold: 0.1 // Trigger when 10% of the section is visible
+};
 
+const sectionObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target); // Unobserve after animating to prevent re-triggering
+    }
+  });
+}, observerOptions);
+
+sections.forEach(section => {
+  sectionObserver.observe(section);
+});
+
+// Smooth Scrolling for Anchor Links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
