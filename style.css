@@ -191,7 +191,6 @@ body {
   }
 }
 
-
 .logo-area {
   display: flex;
   align-items: center;
@@ -431,6 +430,25 @@ h2 {
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.05);
   transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.referral-card img {
+    width:60px;
+    height:60px;
+
+    margin-bottom: 1rem;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.counselling-card img {
+    width:60px;
+    height:60px;
+
+    margin-bottom: 1rem;
+    object-fit: contain;
+    border-radius: 50%;
 }
 
 .why-card:hover,
@@ -473,3 +491,115 @@ h4 {
 
 
 
+/*animation*/
+
+/* =====================
+   ANIMATION BASE
+===================== */
+.animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.animate.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade Up */
+.fade-up.show {
+  animation: fadeUp 0.9s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Zoom In */
+.zoom-in.show {
+  animation: zoomIn 0.8s ease forwards;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Slide Alternating */
+.slide-alt:nth-child(even).show {
+  animation: slideRight 0.8s ease forwards;
+}
+.slide-alt:nth-child(odd).show {
+  animation: slideLeft 0.8s ease forwards;
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Flip In */
+.flip-in.show {
+  animation: flipIn 0.9s ease forwards;
+}
+
+@keyframes flipIn {
+  from {
+    opacity: 0;
+    transform: rotateX(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+
+/* Stagger Effect */
+.stagger {
+  transition-delay: calc(var(--i) * 0.15s);
+}
+
+/* CTA Glow */
+.glow.show {
+  animation: glowPulse 2.5s infinite alternate;
+}
+
+@keyframes glowPulse {
+  from {
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+  }
+  to {
+    box-shadow: 0 0 40px rgba(255,255,255,0.6);
+  }
+}

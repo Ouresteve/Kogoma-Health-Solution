@@ -5,6 +5,22 @@ window.addEventListener("load", () => {
     document.getElementById("app").classList.remove("hidden");
   }, 2000);
 });
+
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  const app = document.getElementById("app");
+
+  setTimeout(() => {
+    loader.style.opacity = "0";
+    loader.style.transform = "scale(1.1)";
+    setTimeout(() => {
+      loader.style.display = "none";
+      app.classList.remove("hidden");
+    }, 500);
+  }, 800);
+});
+
 function toggleMenu() {
   const menu = document.getElementById("mobileMenu");
   const humburger = document.getElementById("humburger");
@@ -12,6 +28,8 @@ function toggleMenu() {
   humburger.innerHTML = menu.style.right === "0px" ? "☰" : "✖";
   menu.style.right = menu.style.right === "0px" ? "-100%" : "0px";
 }
+
+
 
 // Translations
 const translations = {
