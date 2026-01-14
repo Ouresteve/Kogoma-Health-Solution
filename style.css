@@ -142,7 +142,9 @@ body {
   .nav-links {
     display: none;
   }
-
+  .nav-cta {
+    display: none
+  }
   .hamburger {
     display: block;
   }
@@ -381,6 +383,88 @@ footer {
   }
 }
 
+
+
+
+
+
+/* Added content on hme page*/
+
+
+
+section {
+  padding: 80px 8%;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.section-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  color: #555;
+}
+
+/* Grids */
+.why-grid,
+.referral-grid,
+.counselling-grid,
+.pharmacy-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+/* Cards */
+.why-card,
+.referral-card,
+.counselling-card,
+.pharmacy-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.why-card:hover,
+.referral-card:hover,
+.counselling-card:hover,
+.pharmacy-card:hover {
+  transform: translateY(-6px);
+}
+
+h4 {
+  margin-bottom: 10px;
+  color: #0a6b5d;
+}
+
+/* CTA */
+.final-cta {
+  background: linear-gradient(135deg, #0a6b5d, #0f9d8a);
+  color: white;
+  text-align: center;
+  padding: 90px 10%;
+}
+
+.final-cta h2 {
+  color: white;
+}
+
+.final-cta p {
+  margin: 20px 0 30px;
+}
+
+.final-cta .cta-btn {
+  background: white;
+  color: #0a6b5d;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-weight: bold;
+}
 
 
 
