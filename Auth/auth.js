@@ -52,6 +52,8 @@ form.onsubmit = async (e) => {
 if (isLogin) {
     // LOGIN → only email & password
     submitBtn.textContent="Logging in....";
+    submitBtn.disabled=true;
+    submitBtn.style.cursor="progress";
     url = "https://kogoma-server.onrender.com/auth/login";
     payload = {
       email,
@@ -59,6 +61,8 @@ if (isLogin) {
     };
   } else {
     submitBtn.textContent="Creating Account....";
+    submitBtn.disabled=true;
+    submitBtn.style.cursor="progress";
     // REGISTER → email & password (+ confirm password check)
     url = "https://kogoma-server.onrender.com/auth/register";
     payload = {
@@ -81,7 +85,11 @@ if (isLogin) {
   if (!res.ok) { 
     if (isLogin) {
       submitBtn.textContent = "Login";
+      submitBtn.disabled=false;
+    submitBtn.style.cursor="pointer";
     }else {
+      submitBtn.disabled=false;
+      submitBtn.style.cursor="pointer";
       submitBtn.textContent = "Create Account";
     }
   
