@@ -543,7 +543,7 @@ section.visible {
 }
 
 .final-cta.visible {
-  animation: flipIn 1.2s ease forwards;
+  animation: fadeScaleUp 1.2s ease forwards;
 }
 
 /* Unique Animations for Cards - Trigger when parent section is visible */
