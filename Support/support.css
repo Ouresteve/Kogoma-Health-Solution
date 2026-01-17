@@ -258,6 +258,7 @@ body {
 .bot-message {
   background: #e0f2f1;
   align-self: flex-start;
+  
 }
 
 .user-message {
@@ -269,7 +270,7 @@ body {
 /* Input */
 .chat-input {
   display: flex;
-  position: sticky;
+  position: fixed;
   padding: 12px;
   border-top: 1px solid #ddd;
 }
