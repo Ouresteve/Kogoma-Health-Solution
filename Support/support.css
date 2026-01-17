@@ -337,6 +337,7 @@ body {
 
   .support-sidebar {
     padding: 10px;
+    overflow: auto;
   }
 
   .chat-header h4 {
