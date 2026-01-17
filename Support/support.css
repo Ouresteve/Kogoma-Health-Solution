@@ -55,7 +55,7 @@ body {
   width: 100%;
 }
 .hamburger {
-  display: none;
+  display: block;
   font-size: 1.6rem;
   cursor: pointer;
 }
@@ -186,7 +186,7 @@ body {
 ===================== */
 .support-container {
   display: flex;
-  height: calc(100vh - 80px);
+  height: calc(90vh - 80px);
   background: radial-gradient(circle at top right, rgba(46,204,113,0.15), transparent 40%),
     radial-gradient(circle at bottom left, rgba(31,79,216,0.15), transparent 45%),
     var(--soft-gray);
