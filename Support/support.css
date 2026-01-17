@@ -1,0 +1,384 @@
+:root {
+  --primary-blue: #1f4fd8;
+  --health-green: #2ecc71;
+  --blue-gradient: linear-gradient(135deg, #1f4fd8, #3b82f6);
+  --green-gradient: linear-gradient(135deg, #2ecc71, #6ee7b7);
+  --soft-gray: #f4f7fb;
+  --dark-text: #1a1a1a;
+  --animation-duration: 1s;
+  --animation-delay-base: 0.2s;
+  --muted-text: #6b7280;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: white;
+  color: var(--dark-text);
+  overflow-x: hidden;
+}
+
+.nav-links {
+  display: flex;
+  gap: 26px;
+}
+
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--dark-text);
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--blue-gradient);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-blue);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+.hamburger {
+  display: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 70px;
+  right: -100%;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px 24px;
+  transition: right 0.4s ease;
+  z-index: 100;
+}
+
+.mobile-menu a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--dark-text);
+}
+
+.mobile-menu a.mobile-cta {
+  margin-top: 20px;
+  padding: 14px;
+  background: var(--blue-gradient);
+  color: white;
+  text-align: center;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* Mobile behavior */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-cta {
+    display: none
+  }
+  .hamburger {
+    display: block;
+    
+    
+  }
+  
+}
+
+
+
+/* =========================
+   NAV ACTIONS
+========================= */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-cta {
+  padding: 10px 22px;
+  background: var(--blue-gradient);
+  color: white;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 12px 25px rgba(31,79,216,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(31,79,216,0.45);
+}
+
+/* =========================
+   RESPONSIVE NAV
+========================= */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-actions {
+    gap: 10px;
+  }
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.logo-area img {
+  width: 120px;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 36px;
+  background: var(--blue-gradient);
+  color: white;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  box-shadow: 0 20px 40px rgba(31,79,216,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(31,79,216,0.45);
+}
+
+
+/* =====================
+   SUPPORT PAGE
+===================== */
+.support-container {
+  display: flex;
+  height: calc(100vh - 80px);
+  background: radial-gradient(circle at top right, rgba(46,204,113,0.15), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(31,79,216,0.15), transparent 45%),
+    var(--soft-gray);
+}
+
+/* Sidebar */
+.support-sidebar {
+  width: 260px;
+  background: #0f3d3e;
+  color: #fff;
+  padding: 20px;
+}
+
+.support-sidebar h3 {
+  margin-bottom: 20px;
+}
+
+.support-sidebar button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: #1f7a7a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.support-sidebar button:hover {
+  background: #26a69a;
+}
+
+/* Chat Box */
+.chat-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.chat-header {
+  padding: 15px;
+  background: #0f3d3e;
+  color: var(--muted-text);
+  display: flex;
+  justify-content: space-between;
+}
+
+.status {
+  color: #00e676;
+}
+
+/* Messages */
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.bot-message,
+.user-message {
+  max-width: 70%;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  font-size: 14px;
+}
+
+.bot-message {
+  background: #e0f2f1;
+  align-self: flex-start;
+}
+
+.user-message {
+  background: #0f3d3e;
+  color: #fff;
+  align-self: flex-end;
+}
+
+/* Input */
+.chat-input {
+  display: flex;
+  position: sticky;
+  padding: 12px;
+  border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.chat-input button {
+  margin-left: 10px;
+  padding: 10px 18px;
+  background: #0f3d3e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+/* =====================
+   RESPONSIVE SUPPORT PAGE
+===================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .support-container {
+    flex-direction: column;
+  }
+
+  .support-sidebar {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+  }
+
+  .support-sidebar h3 {
+    display: none;
+  }
+
+  .support-sidebar button {
+    flex: 1;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 16px;
+  }
+
+  .support-container {
+    height: calc(100vh - 60px);
+  }
+
+  .support-sidebar {
+    padding: 10px;
+  }
+
+  .chat-header h4 {
+    font-size: 16px;
+  }
+
+  .chat-messages {
+    padding: 14px;
+  }
+
+  .bot-message,
+  .user-message {
+    max-width: 85%;
+    font-size: 13px;
+  }
+
+  .chat-input {
+    padding: 10px;
+  }
+
+  .chat-input input {
+    font-size: 14px;
+  }
+
+  .chat-input button {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .support-sidebar button {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .bot-message,
+  .user-message {
+    max-width: 90%;
+  }
+
+  .chat-header {
+    padding: 10px;
+  }
+
+  .chat-input button {
+    padding: 8px 12px;
+  }
+}
