@@ -20,10 +20,12 @@
 body {
   background: white;
   color: var(--dark-text);
-  overflow-x: hidden;
+  
 }
 
+
 .nav-links {
+
   display: flex;
   gap: 26px;
 }
@@ -75,12 +77,6 @@ body {
   z-index: 100;
 }
 
-.mobile-menu a {
-  font-size: 1.2rem;
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--dark-text);
-}
 
 .mobile-menu a.mobile-cta {
   margin-top: 20px;
@@ -312,6 +308,7 @@ body {
     display: flex;
     gap: 10px;
     overflow-x: auto;
+    
   }
 
   .support-sidebar h3 {
@@ -333,11 +330,19 @@ body {
 
   .support-container {
     height: calc(100vh - 60px);
+    display: inline;
+    
+    
   }
 
   .support-sidebar {
     padding: 10px;
-    overflow: auto;
+    
+    
+    
+  }
+  .chat-header{
+    overflow: hidden;
   }
 
   .chat-header h4 {
@@ -370,6 +375,9 @@ body {
 
 /* Small Phones */
 @media (max-width: 480px) {
+    .support-container{
+        display: inline;
+    }
   .support-sidebar button {
     font-size: 12px;
     padding: 10px;
