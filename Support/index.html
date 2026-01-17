@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KOGOMA Support</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo-area">
+    <img src="images/logo.png" alt="KOGOMA Logo">
+    <span>KOGOMA SUPPORT</span>
+  </div>
+
+  <a href="/" class="nav-cta">Back Home</a>
+</header>
+
+<section class="support-container animate fade-up">
+
+  <div class="support-sidebar">
+    <h3>Support Categories</h3>
+    <button onclick="sendPreset('Counselling Support')">🧠 Counselling</button>
+    <button onclick="sendPreset('Patient Referral')">🏥 Referral</button>
+    <button onclick="sendPreset('Pharmacy Help')">💊 Pharmacy</button>
+    <button onclick="sendPreset('General Inquiry')">ℹ General</button>
+  </div>
+
+  <div class="chat-box">
+    <div class="chat-header">
+      <h4>Live Support</h4>
+      <span class="status">● Online</span>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="bot-message">
+        👋 Hello! Welcome to KOGOMA Support.  
+        How can we help you today?
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <input
+        type="text"
+        id="userInput"
+        placeholder="Type your message here..."
+      />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+</section>
+
+<script src="support.js"></script>
+</body>
+</html>
