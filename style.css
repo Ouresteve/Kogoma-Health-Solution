@@ -739,7 +739,9 @@ section.visible {
 .support-container {
   display: flex;
   height: calc(100vh - 80px);
-  background: #f4f8fb;
+  background: radial-gradient(circle at top right, rgba(46,204,113,0.15), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(31,79,216,0.15), transparent 45%),
+    var(--soft-gray);
 }
 
 /* Sidebar */
