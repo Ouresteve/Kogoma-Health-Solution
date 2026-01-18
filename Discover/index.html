@@ -1,14 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Discover | Health Platform</title>
+  <meta charset="UTF-8">
+  <link rel="icon" class="icon" href="favicon.ico" type="image/x-icon">
+  <meta property="og:type" content="website">
 
+  <meta property="og:image" content="https://kogoma-health-solution.vercel.app/images/logo2.jpeg?=3">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:secure_url" content="https://kogoma-health-solution.vercel.app/images/logo2.jpeg">
+  <meta property="og:title" content="KOGOMA HEALTH SOLUTION">
+  <meta property="og:description" content="Provides patient support, counselling, referrals,and access to essential medical services  all in one secure platform.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover | Health Platform</title>
+  <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="discover.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+     <!-- Header -->
+ <header class="navbar">
+  <div class="logo-area">
+    <img src="/images/logo.png" alt="KOGOMA Logo" />
+    <span>KOGOMA HEALTH SOLUTION</span>
+  </div>
+
+  <nav class="nav-links">
+    <a href="Discover/">Discover</a>
+    <a href="#services">Services</a>
+    <a href="#pharmacy">Pharmacy</a>
+    <a href="Support/">Support</a>
+  </nav>
+
+  <div class="nav-actions">
+    <div class="gtranslate_wrapper">
+      
+    </div>
+    
+
+    <a href="/Auth/" class="nav-cta">Sign In</a>
+
+    <div class="hamburger" onclick="toggleMenu()" id="humburger">
+      ☰
+    </div>
+  </div>
+</header>
 
   <section class="discover-container">
 
@@ -41,7 +77,8 @@
     </div>
 
   </section>
-
+  <script src="/main.js"></script>
+  <script src="/translate.js"></script>
   <script src="discover.js"></script>
 </body>
 </html>
