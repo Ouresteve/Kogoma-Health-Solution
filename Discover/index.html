@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discover | Health Platform</title>
+
+  <link rel="stylesheet" href="discover.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <section class="discover-container">
+
+    <header class="discover-header">
+      <h1>Discover</h1>
+      <p>Learn, share and explore health knowledge</p>
+    </header>
+
+    <div class="discover-controls">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Search health topics..." />
+      </div>
+
+      <div class="filters">
+        <button class="filter active" data-type="all">All</button>
+        <button class="filter" data-type="education">Education</button>
+        <button class="filter" data-type="story">Stories</button>
+        <button class="filter" data-type="tip">Tips</button>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <i class="fas fa-triangle-exclamation"></i>
+      Content is for educational purposes only and not a substitute for professional medical advice.
+    </div>
+
+    <div id="postsContainer" class="posts-container">
+      <!-- JS injects posts here -->
+    </div>
+
+  </section>
+
+  <script src="discover.js"></script>
+</body>
+</html>
