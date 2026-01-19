@@ -636,6 +636,22 @@ function populateReminders() {
   });
 }
 
+
+function toggleMenu() {
+  const menu = document.getElementById("mobileMenu");
+  const humburger = document.getElementById("humburger");
+  
+  humburger.innerHTML = menu.style.left === "0px" ? "☰" : "✖";
+  menu.style.left = menu.style.left === "0px" ? "-100%" : "0px";
+}
+
+// Close mobile menu on link click (optional enhancement)
+document.querySelectorAll('#mobileMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    toggleMenu(); // Reuse toggle to close
+  });
+});
+
 // Helper Functions
 function getCategoryIcon(category) {
   const icons = {
