@@ -1,80 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>KOGOMA | Dashboard</title>
-  <link rel="stylesheet" href="dashboard.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOGOMA Health Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>KOGOMA</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="#" class="nav-item"><i class="fas fa-user"></i> Profile</a>
+        <a href="#" class="nav-item"><i class="fas fa-calendar"></i> Appointments</a>
+        <a href="#" class="nav-item"><i class="fas fa-pills"></i> Medications</a>
+        <a href="#" class="nav-item"><i class="fas fa-comments"></i> Support</a>
+        <a href="#" class="nav-item"><i class="fas fa-cog"></i> Settings</a>
+      </nav>
+    </aside>
 
-<!-- Sidebar -->
-<aside class="sidebar">
-  <div class="logo">
-    <img src="/images/logo.png" alt="Kogoma"/>
-    <span>KOGOMA</span>
+  <div class="nav-actions">
+    <div class="hamburger" onclick="toggleMenu()" id="humburger">
+      ☰
+    </div>
   </div>
 
-  <nav>
-    <a class="active">Dashboard</a>
-    <a href="counselling.html">Counselling</a>
-    <a>Referrals</a>
-    <a>Pharmacy</a>
-    <a>Appointments</a>
-    <a>Profile</a>
-  </nav>
-</aside>
+  <div class="mobile-menu" id="mobileMenu">
+        <a href="#" class="nav-item active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="#" class="nav-item"><i class="fas fa-user"></i> Profile</a>
+        <a href="#" class="nav-item"><i class="fas fa-calendar"></i> Appointments</a>
+        <a href="#" class="nav-item"><i class="fas fa-pills"></i> Medications</a>
+        <a href="#" class="nav-item"><i class="fas fa-comments"></i> Support</a>
+        <a href="#" class="nav-item"><i class="fas fa-cog"></i> Settings</a>
 
-<!-- Main -->
-<main class="main">
 
-  <!-- Top bar (mobile & desktop) -->
-  <header class="topbar">
-    <h2>Dashboard</h2>
-    <div class="user">👤</div>
-  </header>
+  </div>
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <h1>Health Dashboard</h1>
+          <p>Welcome back, <span id="userName">User</span></p>
+        </div>
+        <div class="header-right">
+          <button class="btn-primary"><i class="fas fa-plus"></i> New Appointment</button>
+          <div class="user-avatar">
+            <i class="fas fa-user-circle"></i>
+          </div>
+        </div>
+      </header>
 
-  <!-- Welcome -->
-  <section class="welcome">
-    <h3>Welcome back 👋</h3>
-    <p>Your health, support and care  all in one place.</p>
-  </section>
+      <!-- Dashboard Grid -->
+      <div class="dashboard-grid">
+        <!-- Welcome Card -->
+        <div class="card welcome-card">
+          <div class="card-header">
+            <h3><i class="fas fa-heartbeat"></i> Health Overview</h3>
+          </div>
+          <div class="card-body">
+            <p>Your health metrics are looking good today. Keep up the great work!</p>
+            <div class="health-score">
+              <div class="score-circle">
+                <span id="healthScore">85</span>
+                <span>%</span>
+              </div>
+              <p>Overall Health Score</p>
+            </div>
+          </div>
+        </div>
 
-  <!-- Quick actions -->
-  <section class="quick-actions">
-    <div class="card">💬 Start Counselling</div>
-    <div class="card">🚑 Request Referral</div>
-    <div class="card">💊 Pharmacy</div>
-    <div class="card">📅 Book Appointment</div>
-  </section>
+        <!-- Metrics Cards -->
+        <div class="card metrics-card">
+          <div class="card-header">
+            <h3><i class="fas fa-heartbeat"></i> Heart Rate</h3>
+          </div>
+          <div class="card-body">
+            <div class="metric-value" id="heartRate">--</div>
+            <div class="metric-unit">bpm</div>
+            <div class="metric-trend positive">
+              <i class="fas fa-arrow-up"></i> +2 from yesterday
+            </div>
+          </div>
+        </div>
 
-  <!-- Services -->
-  <section class="services">
-    <h4>Available Services</h4>
-    <div class="service-grid">
-      <div class="service">School & Youth Counselling</div>
-      <div class="service">Emergency & Ambulance Referrals</div>
-      <div class="service">Maternity & Cancer Care</div>
-      <div class="service">Online Pharmacy Access</div>
-    </div>
-  </section>
+        <div class="card metrics-card">
+          <div class="card-header">
+            <h3><i class="fas fa-thermometer-half"></i> Temperature</h3>
+          </div>
+          <div class="card-body">
+            <div class="metric-value" id="temperature">--</div>
+            <div class="metric-unit">°C</div>
+            <div class="metric-trend neutral">
+              <i class="fas fa-minus"></i> Stable
+            </div>
+          </div>
+        </div>
 
-</main>
+        <div class="card metrics-card">
+          <div class="card-header">
+            <h3><i class="fas fa-weight"></i> Weight</h3>
+          </div>
+          <div class="card-body">
+            <div class="metric-value" id="weight">--</div>
+            <div class="metric-unit">kg</div>
+            <div class="metric-trend negative">
+              <i class="fas fa-arrow-down"></i> -0.5 from last week
+            </div>
+          </div>
+        </div>
 
-<!-- Mobile Bottom Nav -->
-<div class="bottom-nav">
-  <span>🏠</span>
-  <span>💬</span>
-  <span>🚑</span>
-  <span>💊</span>
-  <span>👤</span>
-</div>
-<script>
-  const token = localStorage.getItem("token");
-  if (!token) {
-    window.location.href = "https://kogoma-health-solution.vercel.app/Auth/";
-  }
-</script>
-<script src="/translate.js"></script>
+        <div class="card metrics-card">
+          <div class="card-header">
+            <h3><i class="fas fa-tint"></i> Blood Pressure</h3>
+          </div>
+          <div class="card-body">
+            <div class="metric-value" id="bloodPressure">--/--</div>
+            <div class="metric-unit">mmHg</div>
+            <div class="metric-trend positive">
+              <i class="fas fa-arrow-down"></i> Improved
+            </div>
+          </div>
+        </div>
+
+        <!-- Activities Chart -->
+        <div class="card chart-card">
+          <div class="card-header">
+            <h3><i class="fas fa-chart-bar"></i> Weekly Activity</h3>
+          </div>
+          <div class="card-body">
+            <div class="chart-container">
+              <div class="bar-chart">
+                <div class="bar" data-value="80">
+                  <span class="bar-label">Mon</span>
+                  <div class="bar-fill" style="height: 80%"></div>
+                </div>
+                <div class="bar" data-value="65">
+                  <span class="bar-label">Tue</span>
+                  <div class="bar-fill" style="height: 65%"></div>
+                </div>
+                <div class="bar" data-value="90">
+                  <span class="bar-label">Wed</span>
+                  <div class="bar-fill" style="height: 90%"></div>
+                </div>
+                <div class="bar" data-value="75">
+                  <span class="bar-label">Thu</span>
+                  <div class="bar-fill" style="height: 75%"></div>
+                </div>
+                <div class="bar" data-value="85">
+                  <span class="bar-label">Fri</span>
+                  <div class="bar-fill" style="height: 85%"></div>
+                </div>
+                <div class="bar" data-value="70">
+                  <span class="bar-label">Sat</span>
+                  <div class="bar-fill" style="height: 70%"></div>
+                </div>
+                <div class="bar" data-value="60">
+                  <span class="bar-label">Sun</span>
+                  <div class="bar-fill" style="height: 60%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upcoming Appointments -->
+        <div class="card appointments-card">
+          <div class="card-header">
+            <h3><i class="fas fa-calendar-alt"></i> Upcoming Appointments</h3>
+          </div>
+          <div class="card-body">
+            <ul class="appointments-list" id="upcomingAppointments">
+              <!-- Populated by JS -->
+            </ul>
+          </div>
+        </div>
+
+        <!-- Recent Activities -->
+        <div class="card activities-card">
+          <div class="card-header">
+            <h3><i class="fas fa-history"></i> Recent Activities</h3>
+          </div>
+          <div class="card-body">
+            <ul class="activities-list" id="recentActivities">
+              <!-- Populated by JS -->
+            </ul>
+          </div>
+        </div>
+
+        <!-- Reminders -->
+        <div class="card reminders-card">
+          <div class="card-header">
+            <h3><i class="fas fa-bell"></i> Reminders</h3>
+          </div>
+          <div class="card-body">
+            <ul class="reminders-list" id="reminders">
+              <!-- Populated by JS -->
+            </ul>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="card actions-card">
+          <div class="card-header">
+            <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+          </div>
+          <div class="card-body">
+            <div class="action-buttons">
+              <button class="action-btn"><i class="fas fa-hand-holding-medical"></i> Request Support</button>
+              <button class="action-btn"><i class="fas fa-brain"></i> Counseling</button>
+              <button class="action-btn"><i class="fas fa-ambulance"></i> Emergency</button>
+              <button class="action-btn"><i class="fas fa-pills"></i> Pharmacy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../main.js"></script>
+  <script src="dashboard.js"></script>
 </body>
 </html>
