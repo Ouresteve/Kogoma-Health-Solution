@@ -7,7 +7,7 @@ if(!token){
 const payload = JSON.parse(atob(token.split(".")[1]));
 // User Data
 const userData = {
-  name: payload.name || "Guest",
+  name: payload.name,
   healthScore: 85
 };
 
