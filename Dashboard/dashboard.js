@@ -6,6 +6,7 @@ if(!token){
 }
 const payload = JSON.parse(atob(token.split(".")[1]));
 // User Data
+console.log('Decoded JWT Payload:', payload);
 const userData = {
   name: payload.name,
   healthScore: 85
