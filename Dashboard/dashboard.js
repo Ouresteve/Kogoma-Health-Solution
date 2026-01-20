@@ -4,7 +4,7 @@ if(!token){
   window.location.href="https://kogoma-health-solution.vercel.app/Auth/" ;
   
 }
-const payload = JSON.parse(atob(data.access_token.split(".")[1]));
+const payload = JSON.parse(atob(token.split(".")[1]));
 // User Data
 const userData = {
   name: payload.name || "Guest",
