@@ -2,7 +2,7 @@
 const token=localStorage.getItem("token");
 if(!token){
   window.location.href="https://kogoma-health-solution.vercel.app/Auth/" ;
-  return;
+  
 }
 const payload = JSON.parse(atob(data.access_token.split(".")[1]));
 // User Data
