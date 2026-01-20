@@ -1,5 +1,8 @@
 // Dashboard JavaScript
-
+const token=localStorage.getItem("token");
+if(!token){
+  window.location.href="https://kogoma-health-solution.vercel.app/Auth/" ;
+}
 // User Data
 const userData = {
   name: "John Doe",
