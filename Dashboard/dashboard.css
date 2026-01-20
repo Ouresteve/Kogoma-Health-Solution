@@ -16,8 +16,16 @@
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+body {
+  background: white;
+  color: var(--dark-text);
+  overflow-x: hidden;
+}
+
+
 .dashboard-container {
   display: flex;
+  width: 100%;
   min-height: 100vh;
   background-color: var(--soft-gray);
 }
@@ -46,24 +54,6 @@
   opacity: 1;
 }
 
-/* Sidebar Close Button */
-.sidebar-close-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: none;
-  border: none;
-  color: var(--dark-text);
-  font-size: 18px;
-  cursor: pointer;
-  padding: 5px;
-  border-radius: 50%;
-  transition: background 0.3s ease;
-}
-
-.sidebar-close-btn:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
 
 /* Sidebar */
 .sidebar {
@@ -113,7 +103,7 @@
 
 }
 
-.sidebar-logo {
+.sidebar-header img {
   
   width: 100%;
   height: 100px;
@@ -465,25 +455,46 @@
 }
 
 @media (max-width: 768px) {
-  .mobile-menu-btn {
+  .dashboard-container{
+    width: 100%;
+  }
+
+  .mobile-menu {
     display: flex;
+    top: 70px;
+    background: linear-gradient(135deg, #1f4fd8, #3b82f6);
+
+  
+    position: fixed;
+    height: calc(100vh - 70px);
+    
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    
+    position: fixed;
+  right: -100%;
+  width: 100%;
+
+  
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px 24px;
+  transition: right 0.4s ease;
+  z-index: 100;  
   }
   .sidebar-overlay {
-    width: 100%;
-    position: fixed;
+    display: none;
   }
   .sidebar {
-    left: -250px;
+    display: none;
   
   }
 
-  .sidebar.active {
-    left: 0;
-  }
+  
  
   .main-content {
     margin-left: 0;
     background: linear-gradient(135deg, #f8fffe, #e8f8f5);
+    width: 100%;
 
   }
 
@@ -492,6 +503,7 @@
     color: white;
     border-radius: 0;
     margin-bottom: 20px;
+    width: 100vw;
     
   }
   .dashboard-header .btn-primary {
@@ -508,6 +520,13 @@
   .dashboard-grid {
     gap: 15px;
     padding: 0 10px;
+    width: 100vw;
+    display: grid;
+    
+  }
+  .dashboard-grid .metrics{ 
+    display: grid;
+     grid-template-columns: repeat(auto-fill,minmax(120px,1fr))
   }
 
   .card {
