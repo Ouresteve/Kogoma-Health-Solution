@@ -461,7 +461,7 @@ body {
 
   .mobile-menu {
     display: flex;
-    top: 70px;
+    top: 0px;
     background: linear-gradient(135deg, #1f4fd8, #3b82f6);
 
   
@@ -469,10 +469,8 @@ body {
     height: calc(100vh - 70px);
     
     box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-    
-    position: fixed;
-  right: -100%;
-  width: 100%;
+    right: -100%;
+    width: 100%;
 
   
   flex-direction: column;
