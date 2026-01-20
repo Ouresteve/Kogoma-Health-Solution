@@ -455,6 +455,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  .hamburger{
+    color:var(--primary-blue);
+    font-weight:bolder ;
+  }
   .dashboard-container{
     width: 100%;
   }
