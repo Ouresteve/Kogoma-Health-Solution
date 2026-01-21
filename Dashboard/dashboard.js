@@ -1,5 +1,5 @@
 // Dashboard JavaScript
-const token=localStorage.getItem("token");
+//const token=localStorage.getItem("token");
 if(!token){
   window.location.href="https://kogoma-health-solution.vercel.app/Auth/" ;
   
