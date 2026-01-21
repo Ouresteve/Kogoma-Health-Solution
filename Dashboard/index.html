@@ -225,7 +225,14 @@
       </div>
     </main>
   </div>
+  <script>
+    const token=localStorage.getItem("token");
+    if(!token){
+        window.location.href="https://kogoma-health-solution.vercel.app/Auth/" ;
+  
+    }
 
+  </script>
   <script src="dashboard.js"></script>
 </body>
 </html>

@@ -454,7 +454,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
   .hamburger{
     color:var(--primary-blue);
     font-weight:bolder ;
