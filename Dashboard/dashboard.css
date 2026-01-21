@@ -342,8 +342,12 @@ body {
 }
 
 /* Chart Card */
-.chart-container {
-  height: 200px;
+.card-body {
+  height: 100%;
+
+}
+.card-body .chart-container {
+ height: 90%;
 }
 
 .bar-chart {
@@ -351,15 +355,20 @@ body {
   align-items: end;
   justify-content: space-between;
   height: 100%;
+  width: 100%;
   padding: 20px 0;
+
 }
 
 .bar {
   display: flex;
+  border-radius: 10px;
   flex-direction: column;
   align-items: center;
   flex: 1;
   margin: 0 2px;
+  height: 90%;
+  justify-content: flex-end;
 }
 
 .bar-label {
@@ -370,10 +379,12 @@ body {
 
 .bar-fill {
   width: 100%;
+
   background: var(--blue-gradient);
-  border-radius: 4px 4px 0 0;
+  border-radius: 10px;
   transition: height 0.5s ease;
   min-height: 10px;
+
 }
 
 /* Lists */
@@ -552,8 +563,14 @@ body {
     padding-bottom: 10px;
   }
 
+  .card-body .chart-container {
+    height: 250px;
+  }
+
+
   .bar {
     min-width: 40px;
+    height: 100%;
   }
   .nav-actions .hamburger{
     display: block;
